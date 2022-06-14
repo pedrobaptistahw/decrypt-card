@@ -8,16 +8,16 @@
 exports.handler = async (data) => {
   // Check if the data sent into the Cage included the `name` key
   if (data.cardNumber) {
-    console.log(`Card number received` + cardNumber);
+    console.log(`Card number received` + data.cardNumber);
 
     // Process the decrypted name value, and re-encrypt the original name using the globally available evervault package.
     // Note all Cages have the evervault SDK automatically injected into their global scope.
     return {
-      message: `Hello from a Cage! It seems you have ${data.name.length} letters in your name`,
-      name: await evervault.encrypt(data.name),
+      message: `Message something`,
+      name: await evervault.encrypt(data.cardNumber),
     };
   } else {
-    console.debug('An empty name has arrived into the Cage.');
+    console.log('An empty card has arrived into the Cage.');
 
     return {
       message: 'Hello from a Cage! Send an encrypted `name` parameter to show Cage decryption in action',
