@@ -11,8 +11,6 @@ exports.handler = async (data) => {
   if (data.cardNumber && data.cvv) {
     console.debug(`Card details received`);
 
-    // Process the decrypted name value, and re-encrypt the original name using the globally available evervault package.
-    // Note all Cages have the evervault SDK automatically injected into their global scope.
     return {
       message: `Message something`,
       card: data.cardNumber,
